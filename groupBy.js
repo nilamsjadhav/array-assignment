@@ -28,18 +28,18 @@ const indexOf = function (set, element) {
   return -1;
 };
 
-const groupByIdentity = function (set) {
-  const setsOfSimilarElements = [];
+const groupByIdentity = function (list) {
+  const groupsOfSimilarElements = [];
   
-  for (let index = 0; index < set.length; index++) {
-    let position = indexOf(setsOfSimilarElements, set[index]);
+  for (let index = 0; index < list.length; index++) {
+    let position = indexOf(groupsOfSimilarElements, list[index]);
     if ( position === -1) {
-      setsOfSimilarElements.push([]);
-      position = setsOfSimilarElements.length - 1;
+      groupsOfSimilarElements.push([]);
+      position = groupsOfSimilarElements.length - 1;
     }
-    setsOfSimilarElements[position].push(set[index]);
+    groupsOfSimilarElements[position].push(list[index]);
   }
-  return setsOfSimilarElements;
+  return groupsOfSimilarElements;
 };
 
 exports.groupBy = groupByIdentity;
