@@ -28,28 +28,18 @@ const indexOf = function (set, element) {
   return -1;
 };
 
-const groupByIdentity = function (list) {
+const countFrequency = function (list) {
   const groupsOfSimilarElements = [];
   
   for (let index = 0; index < list.length; index++) {
     let position = indexOf(groupsOfSimilarElements, list[index]);
     if ( position === -1) {
-      groupsOfSimilarElements.push([]);
+      groupsOfSimilarElements.push([list[index], 0]);
       position = groupsOfSimilarElements.length - 1;
     }
-    groupsOfSimilarElements[position].push(list[index]);
+    groupsOfSimilarElements[position][1]++;
   }
   return groupsOfSimilarElements;
-};
-
-const countFrequency = function (set) {
-  const groups = groupByIdentity(set);
-  const frequencies = [];
-  
-  for (let index = 0; index < groups.length; index++) {
-    frequencies.push([groups[index][0], groups[index].length]);
-  }
-  return frequencies;
 };
 
 exports.countFrequency = countFrequency;
