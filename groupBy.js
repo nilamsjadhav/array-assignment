@@ -32,13 +32,13 @@ const groupByIdentity = function (set) {
   const setsOfSimilarElements = [];
   
   for (let index = 0; index < set.length; index++) {
-    const position = indexOf(setsOfSimilarElements, set[index]);
+    let position = indexOf(setsOfSimilarElements, set[index]);
+    
     if ( position === -1) {
-      setsOfSimilarElements.push([set[index]]);
+      setsOfSimilarElements.push([]);
+      position = setsOfSimilarElements.length - 1;
     }
-    else {
-      setsOfSimilarElements[position].push(set[index]);
-    }
+    setsOfSimilarElements[position].push(set[index]);
   }
   return setsOfSimilarElements;
 };
