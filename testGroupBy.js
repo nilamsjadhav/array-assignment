@@ -7,6 +7,7 @@ const testGroupBy=function(set, expected, description){
 }
 
 const groupByTests = function () {  
+  testGroupBy([],[],'Empty array');
   testGroupBy([1],[[1]],'Array with single element');
   testGroupBy([1, 2], [[1],[2]], 'Array with two elements');
   testGroupBy([1, 2, 1], [[1,1],[2]], 'Array with two repeated elements');
